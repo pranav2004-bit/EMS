@@ -1,0 +1,121 @@
+@import "tailwindcss";
+
+@theme {
+  /* Brand Colors - Sophisticated & Trustworthy */
+  --color-brand-50: #f0f4f8;
+  --color-brand-100: #d9e2ec;
+  --color-brand-200: #bcccdc;
+  --color-brand-300: #9fb3c8;
+  --color-brand-400: #829ab1;
+  --color-brand-500: #627d98;
+  --color-brand-600: #486581;
+  --color-brand-700: #334e68;
+  --color-brand-800: #243b53;
+  --color-brand-900: #102a43;
+
+  /* UI Palette */
+  --color-navy-950: #0b0f19;
+  --color-navy-900: #111827;
+  --color-navy-800: #1f2937;
+  --color-navy-700: #374151;
+  --color-navy-600: #4b5563;
+  --color-navy-500: #6b7280;
+
+  --color-accent-blue: #3b82f6;
+  --color-accent-blue-hover: #2563eb;
+
+  /* Status Colors */
+  --color-success: #10b981;
+  --color-warning: #f59e0b;
+  --color-danger: #ef4444;
+  --color-info: #3b82f6;
+
+  /* Typography */
+  --font-sans: var(--font-inter), "system-ui", "-apple-system", "sans-serif";
+  --font-heading: var(--font-plus-jakarta), "Inter", "sans-serif";
+}
+
+:root {
+  --background: #0b0f19;
+  --foreground: #f9fafb;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Base Component Layer */
+@utility btn-primary {
+  @apply inline-flex items-center justify-center px-5 py-2.5 rounded-lg text-sm font-semibold transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-navy-950 active:scale-[0.98] disabled:opacity-50 disabled:pointer-events-none;
+  @apply bg-accent-blue text-white hover:bg-accent-blue-hover shadow-lg shadow-accent-blue/20 hover:shadow-xl hover:shadow-accent-blue/30;
+}
+
+@utility btn-secondary {
+  @apply inline-flex items-center justify-center px-5 py-2.5 rounded-lg text-sm font-semibold transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-navy-950 active:scale-[0.98] disabled:opacity-50 disabled:pointer-events-none;
+  @apply bg-navy-800 text-white hover:bg-navy-700 border border-navy-700 hover:border-navy-600;
+}
+
+@utility btn-outline {
+  @apply inline-flex items-center justify-center px-5 py-2.5 rounded-lg text-sm font-semibold transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-navy-950 active:scale-[0.98] disabled:opacity-50 disabled:pointer-events-none;
+  @apply border border-navy-700 text-brand-200 hover:bg-navy-800 hover:text-white hover:border-navy-600;
+}
+
+@utility btn-ghost {
+  @apply inline-flex items-center justify-center px-5 py-2.5 rounded-lg text-sm font-semibold transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-navy-950 active:scale-[0.98] disabled:opacity-50 disabled:pointer-events-none;
+  @apply text-brand-300 hover:bg-navy-800 hover:text-white;
+}
+
+/* Form Elements */
+@utility input-base {
+  @apply w-full bg-navy-900/50 border border-navy-700 rounded-lg px-4 py-2.5 text-sm text-white placeholder:text-navy-500 focus:outline-none focus:ring-2 focus:ring-accent-blue/40 focus:border-accent-blue transition-all;
+}
+
+/* Content Containers */
+@utility glass-card {
+  @apply bg-navy-900/40 backdrop-blur-md border border-white/10 rounded-xl p-6 shadow-2xl shadow-black/40;
+}
+
+@utility status-badge {
+  @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium border;
+}
+
+/* Animations */
+@keyframes shake {
+
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+
+  25% {
+    transform: translateX(-4px);
+  }
+
+  75% {
+    transform: translateX(4px);
+  }
+}
+
+.animate-shake {
+  animation: shake 0.2s ease-in-out 0s 2;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.5s ease-out forwards;
+}
